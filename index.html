@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<title>GlobalShare</title>
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="manifest" href="manifest.json">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="logo">
+            <i data-lucide="share-2"></i>
+        </div>
+
+        <div>
+
+            <h1>GlobalShare</h1>
+
+            <p>Worldwide P2P File Transfer</p>
+
+        </div>
+    </div>
+
+    <div id="status" class="status">
+
+        <span class="dot"></span>
+
+        Waiting
+
+    </div>
+
+</header>
+
+<main class="main-layout">
+
+    <!-- LEFT -->
+
+    <section class="left-panel">
+
+        <div class="drop-zone" id="drop-zone">
+
+            <input type="file"
+                   id="file-input"
+                   multiple
+                   hidden>
+
+            <div class="upload-icon">
+
+                <i data-lucide="upload-cloud"></i>
+
+            </div>
+
+            <h2>Drop files here</h2>
+
+            <p>Send files to any device worldwide</p>
+
+            <button id="browse-btn">
+
+                Browse Files
+
+            </button>
+
+        </div>
+
+        <div class="activity-box">
+
+            <div class="section-title">
+
+                <i data-lucide="refresh-cw"></i>
+
+                Transfers
+
+            </div>
+
+            <div id="transfers"></div>
+
+        </div>
+
+    </section>
+
+    <!-- RIGHT -->
+
+    <aside class="right-panel">
+
+        <div class="pair-box">
+
+            <h3>Your Device</h3>
+
+            <div id="qrcode"></div>
+
+            <label>Your Peer ID</label>
+
+            <div id="peer-id-display"
+                 class="peer-box">
+                ...
+            </div>
+
+            <button id="copy-peer-id">
+
+                Copy ID
+
+            </button>
+
+            <label>Your Security PIN</label>
+
+            <div id="pin-display"
+                 class="peer-box">
+                ...
+            </div>
+
+        </div>
+
+        <div class="connect-box">
+
+            <h3>Connect Device</h3>
+
+            <input type="text"
+                   id="peer-id-input"
+                   placeholder="Target Peer ID">
+
+            <input type="text"
+                   id="pin-input"
+                   placeholder="Sender PIN">
+
+            <button id="connect-btn">
+
+                Connect
+
+            </button>
+
+        </div>
+
+        <div class="devices-box">
+
+            <div class="section-title">
+
+                <i data-lucide="users"></i>
+
+                Connected Devices
+
+            </div>
+
+            <div id="connected-devices"></div>
+
+        </div>
+
+    </aside>
+
+</main>
+
+<div id="toast">
+
+    <span id="toast-msg"></span>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
